@@ -1,0 +1,40 @@
+{
+  "applications": ["store"],
+  "changelogDate": "20230303104715",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "wish_list",
+  "fields": [
+    {
+      "fieldName": "title",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "restricted",
+      "fieldType": "Boolean"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "WishList",
+  "pagination": "infinite-scroll",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "title",
+      "otherEntityName": "product",
+      "otherEntityRelationshipName": "wishList",
+      "relationshipName": "product",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "customer",
+      "otherEntityRelationshipName": "wishList",
+      "relationshipName": "customer",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "elasticsearch",
+  "service": "serviceClass"
+}

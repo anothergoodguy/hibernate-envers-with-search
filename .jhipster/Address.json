@@ -1,0 +1,48 @@
+{
+  "applications": ["store"],
+  "changelogDate": "20230303104615",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "address",
+  "fields": [
+    {
+      "fieldName": "address1",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "address2",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "city",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "postcode",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "10"
+    },
+    {
+      "fieldName": "country",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "2"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Address",
+  "pagination": "infinite-scroll",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "customer",
+      "otherEntityRelationshipName": "address",
+      "relationshipName": "customer",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "elasticsearch",
+  "service": "serviceClass"
+}

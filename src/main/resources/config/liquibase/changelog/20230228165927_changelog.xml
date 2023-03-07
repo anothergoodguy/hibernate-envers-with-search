@@ -1,0 +1,168 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet author="jhipster" id="1677583782757-1">
+        <createTable tableName="audit_event_data">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="audit_event_dataPK"/>
+            </column>
+            <column name="timestamp" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="auditor" type="VARCHAR(255)"/>
+            <column name="ref_revision_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="revised_by" type="BINARY(16)"/>
+            <column name="revised_by_type" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="jhipster" id="1677585211249-3">
+        <createTable tableName="address_version">
+            <column name="id" type="BINARY(16)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rev" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="revtype" type="TINYINT"/>
+            <column name="address_1" type="VARCHAR(255)"/>
+            <column name="address_2" type="VARCHAR(255)"/>
+            <column name="city" type="VARCHAR(255)"/>
+            <column name="country" type="VARCHAR(2)"/>
+            <column name="postcode" type="VARCHAR(10)"/>
+            <column name="customer_id" type="BINARY(16)"/>
+            <column name="active" type="bit"/>
+            <column name="tm_cursor" type="bigint"/>
+            <column name="created_by" type="varchar(50)"/>
+            <column name="created_date" type="timestamp"/>
+            <column name="last_modified_by" type="varchar(255)"/>
+            <column name="last_modified_date" type="datetime(6)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="jhipster" id="1677585211249-4">
+        <createTable tableName="category_version">
+            <column name="id" type="BINARY(16)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rev" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="revtype" type="TINYINT"/>
+            <column name="date_added" type="date"/>
+            <column name="date_modified" type="date"/>
+            <column name="description" type="VARCHAR(255)"/>
+            <column name="sort_order" type="INT"/>
+            <column name="status" type="VARCHAR(255)"/>
+            <column name="parent_id" type="BINARY(16)"/>
+            <column name="active" type="bit"/>
+            <column name="tm_cursor" type="bigint"/>
+            <column name="created_by" type="varchar(50)"/>
+            <column name="created_date" type="timestamp"/>
+            <column name="last_modified_by" type="varchar(255)"/>
+            <column name="last_modified_date" type="datetime(6)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="jhipster" id="1677585211249-5">
+        <createTable tableName="customer_version">
+            <column name="id" type="BINARY(16)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rev" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="revtype" type="TINYINT"/>
+            <column name="email" type="VARCHAR(255)"/>
+            <column name="first_name" type="VARCHAR(255)"/>
+            <column name="last_name" type="VARCHAR(255)"/>
+            <column name="telephone" type="VARCHAR(255)"/>
+            <column name="active" type="bit"/>
+            <column name="tm_cursor" type="bigint"/>
+            <column name="created_by" type="varchar(50)"/>
+            <column name="created_date" type="timestamp"/>
+            <column name="last_modified_by" type="varchar(255)"/>
+            <column name="last_modified_date" type="datetime(6)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="jhipster" id="1677585211249-6">
+        <createTable tableName="product_version">
+            <column name="id" type="BINARY(16)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rev" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="revtype" type="TINYINT"/>
+            <column name="date_added" type="date"/>
+            <column name="date_modified" type="date"/>
+            <column name="description" type="VARCHAR(255)"/>
+            <column name="keywords" type="VARCHAR(255)"/>
+            <column name="rating" type="INT"/>
+            <column name="title" type="VARCHAR(255)"/>
+            <column name="wish_list_id" type="BINARY(16)"/>
+            <column name="active" type="bit"/>
+            <column name="tm_cursor" type="bigint"/>
+            <column name="created_by" type="varchar(50)"/>
+            <column name="created_date" type="timestamp"/>
+            <column name="last_modified_by" type="varchar(255)"/>
+            <column name="last_modified_date" type="datetime(6)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="jhipster" id="1677585211249-7">
+        <createTable tableName="wish_list_version">
+            <column name="id" type="BINARY(16)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rev" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="revtype" type="TINYINT"/>
+            <column name="restricted" type="BIT"/>
+            <column name="title" type="VARCHAR(255)"/>
+            <column name="customer_id" type="BINARY(16)"/>
+            <column name="active" type="bit"/>
+            <column name="tm_cursor" type="bigint"/>
+            <column name="created_by" type="varchar(50)"/>
+            <column name="created_date" type="timestamp"/>
+            <column name="last_modified_by" type="varchar(255)"/>
+            <column name="last_modified_date" type="datetime(6)"/>
+        </createTable>
+    </changeSet>
+
+
+
+    <changeSet author="jhipster" id="1677585211249-17">
+        <addPrimaryKey columnNames="rev, id" constraintName="address_versionPK" tableName="address_version"/>
+    </changeSet>
+    <changeSet author="jhipster" id="1677585211249-18">
+        <addPrimaryKey columnNames="rev, id" constraintName="category_versionPK" tableName="category_version"/>
+    </changeSet>
+    <changeSet author="jhipster" id="1677585211249-19">
+        <addPrimaryKey columnNames="rev, id" constraintName="customer_versionPK" tableName="customer_version"/>
+    </changeSet>
+    <changeSet author="jhipster" id="1677585211249-20">
+        <addPrimaryKey columnNames="rev, id" constraintName="product_versionPK" tableName="product_version"/>
+    </changeSet>
+    <changeSet author="jhipster" id="1677585211249-21">
+        <addPrimaryKey columnNames="rev, id" constraintName="wish_list_versionPK" tableName="wish_list_version"/>
+    </changeSet>
+    <changeSet author="jhipster" id="1677585211249-22">
+        <addForeignKeyConstraint baseColumnNames="rev" baseTableName="address_version" constraintName="FK25q6lp3fqnjsyxj0xdkhsnbdf" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="audit_event_data" validate="true"/>
+    </changeSet>
+    <changeSet author="jhipster" id="1677585211249-23">
+        <addForeignKeyConstraint baseColumnNames="rev" baseTableName="wish_list_version" constraintName="FKble6fu09dayh66rbevklnbei0" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="audit_event_data" validate="true"/>
+    </changeSet>
+    <changeSet author="jhipster" id="1677585211249-24">
+        <addForeignKeyConstraint baseColumnNames="rev" baseTableName="product_version" constraintName="FKkywinfkjeq0x68x077y68a90p" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="audit_event_data" validate="true"/>
+    </changeSet>
+    <changeSet author="jhipster" id="1677585211249-25">
+        <addForeignKeyConstraint baseColumnNames="rev" baseTableName="category_version" constraintName="FKla7eu1odbr6aic0g8iwyiparb" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="audit_event_data" validate="true"/>
+    </changeSet>
+    <changeSet author="jhipster" id="1677585211249-26">
+        <addForeignKeyConstraint baseColumnNames="rev" baseTableName="customer_version" constraintName="FKqg9n0tg64kkgojd7o8okbal00" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="audit_event_data" validate="true"/>
+    </changeSet>
+
+
+
+</databaseChangeLog>

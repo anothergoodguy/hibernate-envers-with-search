@@ -1,0 +1,30 @@
+{
+  "storeApp": {
+    "address": {
+      "home": {
+        "title": "Addresses",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Address",
+        "createOrEditLabel": "Create or edit a Address",
+        "search": "Search for Address",
+        "notFound": "No Addresses found"
+      },
+      "created": "A new Address is created with identifier {{ param }}",
+      "updated": "A Address is updated with identifier {{ param }}",
+      "deleted": "A Address is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Address {{ id }}?"
+      },
+      "detail": {
+        "title": "Address"
+      },
+      "id": "ID",
+      "address1": "Address 1",
+      "address2": "Address 2",
+      "city": "City",
+      "postcode": "Postcode",
+      "country": "Country",
+      "customer": "Customer"
+    }
+  }
+}

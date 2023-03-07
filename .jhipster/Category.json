@@ -1,0 +1,53 @@
+{
+  "applications": ["store"],
+  "changelogDate": "20230303104315",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "category",
+  "fields": [
+    {
+      "fieldName": "description",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "sortOrder",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "dateAdded",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "dateModified",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "CategoryStatus",
+      "fieldValues": "AVAILABLE,RESTRICTED,DISABLED"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Category",
+  "pagination": "infinite-scroll",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "category",
+      "relationshipName": "parent",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityField": "title",
+      "otherEntityName": "product",
+      "otherEntityRelationshipName": "category",
+      "ownerSide": true,
+      "relationshipName": "product",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "searchEngine": "elasticsearch",
+  "service": "serviceClass"
+}
