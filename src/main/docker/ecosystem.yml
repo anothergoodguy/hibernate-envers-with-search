@@ -33,6 +33,7 @@ services:
     #  - ./volumes/jhipster/store/mysql/:/var/lib/mysql/
     environment:
       - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+      #- MYSQL_ROOT_PASSWORD=passW0rd
       - MYSQL_DATABASE=store
     # If you want to expose these ports outside your dev PC,
     # remove the "127.0.0.1:" prefix
@@ -53,3 +54,16 @@ services:
       - HQ_DEBUG=False
     ports:
       - 5000:5000
+
+  phpmyadmin:
+    depends_on:
+      - store-mysql
+    image: phpmyadmin
+    restart: always
+    ports:
+      - '8010:80'
+    environment:
+      PMA_HOST: store-mysql
+      PMA_PMADB: store
+      PMA_USER: root
+      #MYSQL_ROOT_PASSWORD: password
